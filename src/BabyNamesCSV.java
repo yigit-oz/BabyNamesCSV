@@ -200,11 +200,11 @@ public class BabyNamesCSV {
 			String FileName = f.getName();
 			FileResource fr = new FileResource(f);
 			current = getRank(fr, name, gender);
-			if(minRank == 0) {
+			if(minRank == 0 && current != -1) {
 				minRank = current;
 				year = Integer.parseInt(FileName.substring(3, 7));
 			}
-			if(current < minRank) {
+			if(current < minRank && current != -1) {
 				minRank = current; 
 				year = Integer.parseInt(FileName.substring(3, 7));
 			}
@@ -214,12 +214,12 @@ public class BabyNamesCSV {
 	
 	// Test yearOfHighestRank method.
 	public void testYearOfHighestRank() {
-		int //test1 = yearOfHighestRank("Mason", "M"), 
-			//test2 = yearOfHighestRank("Noah", "M"),
+		int test1 = yearOfHighestRank("Mason", "M"), 
+			test2 = yearOfHighestRank("Noah", "M"),
 			test3 = yearOfHighestRank("Frank", "M");	
 		
-		//System.out.println("Test 1: " + test1);
-		//System.out.println("Test 2: " + test2);
+		System.out.println("Test 1: " + test1);
+		System.out.println("Test 2: " + test2);
 		System.out.println(test3);
 	}
 	
